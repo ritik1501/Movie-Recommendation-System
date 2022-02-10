@@ -10,7 +10,6 @@ import pickle
 import requests
 
 
-
 def create_similarity():
     data = pd.read_csv('datasets/main_data.csv')
     # creating a count matrix
@@ -28,7 +27,7 @@ def rcmd(m):
     except:
         data, similarity = create_similarity()
     if m not in data['movie_title'].unique():
-        return('Sorry! The movie you requested is not in our database. Please check the spelling or try with some other movies')
+        return('Sorry! The movie you requested is not in our database. Please check the spelling or try with some other movies. We will shortly update your movie into ou list also.')
     else:
         i = data.loc[data['movie_title']==m].index[0]
         lst = list(enumerate(similarity[i]))
